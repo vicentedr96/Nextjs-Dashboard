@@ -1707,4 +1707,44 @@ export const metadata: Metadata = {
 
 El %s en la plantilla se reemplazará con el título de la página específica.
 
-Ahora, en su página /dashboard/invoices, puede agregar el título de la página:
+Ahora, en su página /dashboard/invoices, puede agregar el título de la pagina.
+
+```ts
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
+```
+
+https://nextjs-dashboard-zeta-ochre-50.vercel.app/
+
+## Otras fuentes ##
+Turbopack se puede utilizar en Next.js tanto en las páginas como en los directorios de aplicaciones para un desarrollo local más rápido. Para habilitar Turbopack, use el indicador --turbo cuando ejecute el servidor de desarrollo Next.js.
+
+Los **componentes del servidor** pueden utilizar la directiva "usar servidor" a nivel de función en línea o a nivel de módulo. Para insertar una acción del servidor, agregue "use server" en la parte superior del cuerpo de la función:
+
+```js
+// Server Component
+export default function Page() {
+  // Server Action
+  async function create() {
+    'use server'
+ 
+    // ...
+  }
+ 
+  return (
+    // ...
+  )
+}
+```
+
+Componentes del cliente, Los componentes del cliente sólo pueden importar acciones que utilicen la directiva "use server" a nivel de módulo.
+Todas las funciones dentro del archivo se marcarán como Acciones del servidor que se pueden reutilizar tanto en los componentes del cliente como en los del servidor:
+
+```js
+'use client'
+ 
+export default function ClientComponent({ updateItem }) {
+  return <form action={updateItem}>{/* ... */}</form>
+}
+```
