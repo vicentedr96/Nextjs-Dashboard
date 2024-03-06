@@ -35,7 +35,7 @@ export default async function Page({
         <Pagination totalPages={totalPages} />
       </div>
     </div>
-  );
+  ); 
 }
 // export const metadata: Metadata = {
 //   title: 'Invoices | Acme Dashboard',
